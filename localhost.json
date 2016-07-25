@@ -1,0 +1,66 @@
+{
+  "dbuser" : "ops",
+  "run_list" : [
+    "recipe[git]",
+    "recipe[ruby_build]",
+    "recipe[rbenv]",
+    "recipe[tmux]" ,
+    "recipe[mongodb]",
+    "recipe[selinux::disabled]" ,
+    "recipe[rails_book_cookbook]" ,
+    "recipe[rails_book_cookbook::ops_user]" ,
+    "recipe[rails_book_cookbook::keys]" ,
+    "recipe[rails_book_cookbook::rbenv]"
+  ],
+  "tmux" : {
+    "session_opts" : {
+      "prefix" : "C-t"
+    }
+  },
+  "postgresql" : {
+    "enable_pgdg_yum" : true,
+    "version" : "9.4",
+    "dir" : "/var/lib/pgsql/9.4/data",
+    "client" : {
+      "packages" : ["postgresql94", "postgresql94-devel"]
+    },
+    "server" : {
+      "packages" : ["postgresql94-server"],
+      "service_name" : "postgresql-9.4"
+    },
+    "contrib" : {
+      "packages" : ["postgresql94-contrib"]
+    },
+    "setup_script" : "postgresql94-setup",
+    "config" : {
+      "listen_addresses" : "*",
+      "data_directory" : "/var/lib/pgsql/9.4/data"
+    },
+    "password" : {
+      "postgres" : "$1$n/ehF/wS$8NE3gYevxrhxX66jwCuiU/"
+    },
+    "pg_hba" : [
+      {
+        "type" : "local",
+        "db"   : "all",
+        "user" : "all",
+        "addr" : null,
+        "method" : "trust"
+      },
+      {
+        "type" : "host",
+        "db"   : "all",
+        "user" : "all",
+        "addr" : "0.0.0.0/0",
+        "method" : "trust"
+      },
+      {
+        "type" : "host",
+        "db"   : "all",
+        "user" : "all",
+        "addr" : "::1/128",
+        "method" : "trust"
+      }
+    ]
+  }
+}

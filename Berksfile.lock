@@ -1,0 +1,51 @@
+DEPENDENCIES
+  git
+  mongodb
+    git: git://github.com/edelight/chef-mongodb.git
+    revision: dc5836318a27331f605f264d946931927dd26bb8
+  postgresql
+  rbenv
+  ruby_build
+  selinux
+  simple_iptables
+  tmux
+
+GRAPH
+  apt (2.9.2)
+  build-essential (2.2.4)
+  chef-sugar (3.3.0)
+  chef_handler (1.2.0)
+  dmg (2.3.0)
+  git (4.3.7)
+    build-essential (>= 0.0.0)
+    dmg (>= 0.0.0)
+    windows (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  mongodb (0.16.3)
+    apt (>= 1.8.2)
+    python (>= 0.0.0)
+    yum (>= 3.0.0)
+  ohai (2.1.0)
+  openssl (4.4.0)
+    chef-sugar (>= 3.1.1)
+  postgresql (4.0.0)
+    apt (>= 1.9.0)
+    build-essential (>= 0.0.0)
+    openssl (~> 4.0)
+  python (1.4.6)
+    build-essential (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  rbenv (1.7.1)
+    apt (>= 0.0.0)
+    build-essential (>= 0.0.0)
+    git (>= 0.0.0)
+    ohai (>= 1.1)
+  ruby_build (0.8.0)
+  selinux (0.9.0)
+  simple_iptables (0.7.4)
+  tmux (1.5.0)
+  windows (1.39.1)
+    chef_handler (>= 0.0.0)
+  yum (3.10.0)
+  yum-epel (0.6.5)
+    yum (~> 3.2)
